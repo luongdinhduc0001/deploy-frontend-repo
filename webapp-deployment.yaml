@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: webapp
-          image: ldd000/public-repo-2-f8846321-2078-4c6f-a30e-f103737b545f:latest3
+          image: ldd000/public-repo-2-f8846321-2078-4c6f-a30e-f103737b545f:v1.0.3
           ports:
             - containerPort: 3000
           imagePullPolicy: Always
