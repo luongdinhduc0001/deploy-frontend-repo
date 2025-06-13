@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: webapp
-          image: registry.viettelidc.com.vn/public-repo-1-f8846321-2078-4c6f-a30e-f103737b545f/myappbackend:latest
+          image: registry.viettelidc.com.vn/public-repo-1-f8846321-2078-4c6f-a30e-f103737b545f/myappfrontend:v1.0.4
           ports:
             - containerPort: 3000
           imagePullPolicy: Always
