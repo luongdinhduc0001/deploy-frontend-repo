@@ -7,5 +7,4 @@ ingress:
   host: ducld12321.id.vn
   className: nginx-class
   tlsSecret: app-tls-secret
-api:
-  image: registry.viettelidc.com.vn/public-repo-1-f8846321-2078-4c6f-a30e-f103737b545f/myappfrontend:v1.0.5
+
