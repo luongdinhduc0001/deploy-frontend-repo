@@ -2,9 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: webapp-deployment
-  namespace: default
 spec:
-  replicas: 2
+  replicas: {{ .Values.webapp.replicas }}
   selector:
     matchLabels:
       app: webapp
@@ -15,9 +14,11 @@ spec:
     spec:
       containers:
         - name: webapp
-          image: registry.viettelidc.com.vn/public-repo-1-f8846321-2078-4c6f-a30e-f103737b545f/myappfrontend:v1.0.4
+          image: {{ .Values.webapp.image }}
           ports:
             - containerPort: 3000
           imagePullPolicy: Always
       imagePullSecrets:
-        - name: idcregcred1
+        {{- range .Values.webapp.imagePullSecrets }}
+        - name: {{ . }}
+        {{- end }}
