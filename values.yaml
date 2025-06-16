@@ -1,5 +1,5 @@
 webapp:
-  image: registry.viettelidc.com.vn/public-repo-1-f8846321-2078-4c6f-a30e-f103737b545f/myappfrontend:v1.0.6
+  image: registry.viettelidc.com.vn/public-repo-1-f8846321-2078-4c6f-a30e-f103737b545f/myappfrontend:v1.0.7
   replicas: 2
   imagePullSecrets:
     - idcregcred1
