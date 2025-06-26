@@ -3,7 +3,7 @@ webapp:
   replicas: 2
   imagePullSecrets:
     - idcregcred1
-ingress:
-  host: ducld12321.id.vn
-  className: nginx-class
-  tlsSecret: app-tls-secret
+# ingress:
+#   host: ducld12321.id.vn
+#   className: nginx-class
+#   tlsSecret: app-tls-secret
