@@ -1,9 +1,32 @@
+namespace: kong
 webapp:
-  image: registry.viettelidc.com.vn/public-repo-1-f8846321-2078-4c6f-a30e-f103737b545f/myappfrontend:v1.2.2
+  name: webapp-deployment
+  image: ldd000/myappfrontend:v1.2.2
   replicas: 2
+  selector:
+    app: webapp
+  container:
+    name: webapp
+    port: 3000
   imagePullSecrets:
-    - idcregcred1
-# ingress:
-#   host: ducld12321.id.vn
-#   className: nginx-class
-#   tlsSecret: app-tls-secret
+    - dockerhub-secret
+
+service:
+  name: webapp-service
+  selector:
+    app: webapp
+  port: 80
+  targetPort: 3000
+
+ingress:
+  name: kong-to-webapp-service-ingress
+  enabled: true
+  className: kong
+  host: ducld12321.id.vn
+  path: /
+  pathType: Prefix
+  tlsSecret: app-tls-secret
+  service:
+    name: webapp-service
+    port: 80
+  

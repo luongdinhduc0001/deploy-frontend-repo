@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: webapp-service
-  namespace: kong
+  name: {{ .Values.service.name }}
+  namespace: {{ .Values.namespace }}
 spec:
   selector:
-    app: webapp
+    app: {{ .Values.webapp.selector.app }}
   ports:
-    - port: 80
-      targetPort: 3000
+    - port: {{ .Values.service.port }}
+      targetPort: {{ .Values.service.targetPort }}
       protocol: TCP
   type: ClusterIP

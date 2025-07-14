@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: webapp-deployment
-  namespace: kong
+  name: {{ .Values.webapp.name }}
+  namespace: {{ .Values.namespace }}
 spec:
   replicas: {{ .Values.webapp.replicas }}
   selector:
     matchLabels:
-      app: webapp
+      app: {{ .Values.webapp.selector.app }}
   template:
     metadata:
       labels:
         app: webapp
     spec:
       containers:
-        - name: webapp
+        - name: {{ .Values.webapp.container.name }}
           image: {{ .Values.webapp.image }}
           ports:
-            - containerPort: 3000
+            - containerPort: {{ .Values.webapp.container.port }}
           imagePullPolicy: Always
       imagePullSecrets:
         {{- range .Values.webapp.imagePullSecrets }}
